@@ -14,20 +14,22 @@
 
         <body>
             <main>
-                <h1>TELA DE CADASTRO</h1>
-                <h3>Usuário</h3>
-                <input type="text" class="form-control" placeholder="">
-                <h3>Senha</h3>
-                <input type="password" id="inputPassword6" class="form-control">
-                <h3>Nome</h3>
-                <input type="text" class="form-control" placeholder="">
-                <h3>Telefone</h3>
-                <input type="tel" class="form-control" placeholder="">
-                <h3>Data Nascimento</h3>
-                <input type="date" class="form-control" placeholder="">
-                <h3>Cpf</h3>
-                <input type="text" class="form-control" placeholder=""> <br>
-                <input class="btn btn-primary" type="submit" value="Enviar">
+                <form name="formcadastro" action="cadastro">
+                    <h1>TELA DE CADASTRO</h1>
+                    <h3>Usuário</h3>
+                    <input type="text" class="form-control" placeholder="">
+                    <h3>Senha</h3>
+                    <input type="password" id="inputPassword6" class="form-control">
+                    <h3>Nome</h3>
+                    <input type="text" class="form-control" placeholder="">
+                    <h3>Telefone</h3>
+                    <input type="tel" class="form-control" placeholder="">
+                    <h3>Data Nascimento</h3>
+                    <input type="date" class="form-control" placeholder="">
+                    <h3>Cpf</h3>
+                    <input type="text" class="form-control" placeholder=""> <br>
+                    <input class="btn btn-primary" type="submit" value="Enviar">
+                </form>
             </main>
             <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
                 integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

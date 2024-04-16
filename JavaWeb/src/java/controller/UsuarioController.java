@@ -8,13 +8,18 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.bean.UsuarioDTO;
+import model.dao.UsuarioDAO;
 
 /**
  *
  * @author Senai
  */
-@WebServlet(name = "LoginController", urlPatterns = {"/usuario-login", "/usuario-cadastro"})
+@WebServlet(name = "LoginController", urlPatterns = {"/usuario-login", "/usuario-cadastro", "/cadastro"})
 public class UsuarioController extends HttpServlet {
+
+    UsuarioDTO objUsuarioDTO = new UsuarioDTO();
+    UsuarioDAO objUsuarioDAO = new UsuarioDAO();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -24,14 +29,16 @@ public class UsuarioController extends HttpServlet {
             String nextPage = "/WEB-INF/jsp/login.jsp";
 
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
-            dispatcher.forward(request, response);                
-        }
-        if(url.equals("/usuario-cadastro")){
+            dispatcher.forward(request, response);
+        } else if (url.equals("/usuario-cadastro")) {
             String nextPage = "/WEB-INF/jsp/cadastro.jsp";
 
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
-        }        
+        }
+        else if (url.equals("/cadastro")) {
+            doPost(request, response);
+        }
     }
 
     @Override
