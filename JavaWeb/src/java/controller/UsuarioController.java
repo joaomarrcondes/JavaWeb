@@ -37,8 +37,7 @@ public class UsuarioController extends HttpServlet {
 
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
-        }
-        else if (url.equals("/cadastro")) {
+        } else if (url.equals("/cadastro")) {
             doPost(request, response);
         }
     }
@@ -47,7 +46,7 @@ public class UsuarioController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-         String url = request.getServletPath();
+        String url = request.getServletPath();
         if (url.equals("/users")) {
             List<UsuarioDTO> users = objUsuarioDAO.ler();
 
