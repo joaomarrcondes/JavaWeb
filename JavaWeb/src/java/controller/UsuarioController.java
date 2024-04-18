@@ -40,6 +40,7 @@ public class UsuarioController extends HttpServlet {
         } else if (url.equals("/cadastro")) {
             doPost(request, response);
         }
+         
     }
 
     @Override
@@ -61,14 +62,13 @@ public class UsuarioController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-        objUsuarioDTO.setNome(request.getParameter("nome"));
-        objUsuarioDTO.setSenha(request.getParameter("senha"));
-        objUsuarioDTO.setUsuario(request.getParameter("usuario"));
-        objUsuarioDTO.setTelefone(request.getParameter("telefone"));
-        objUsuarioDTO.setData_nascimento(request.getParameter("data-nascimento"));
-        objUsuarioDTO.setCpf(request.getParameter("cpf"));
+            throws ServletException, IOException {     
+        objUsuarioDTO.setNome(request.getParameter("Nome"));
+        objUsuarioDTO.setSenha(request.getParameter("Senha"));
+        objUsuarioDTO.setUsuario(request.getParameter("Usuario"));
+        objUsuarioDTO.setTelefone(request.getParameter("Telefone"));
+        objUsuarioDTO.setData_nascimento(request.getParameter("Data"));
+        objUsuarioDTO.setCpf(request.getParameter("Cpf"));
         objUsuarioDAO.inserir(objUsuarioDTO);
         String path = "/WEB-INF/jsp/index.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(path);

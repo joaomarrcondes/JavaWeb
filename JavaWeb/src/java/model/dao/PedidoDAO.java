@@ -66,9 +66,7 @@ public class PedidoDAO {
             stmt.executeUpdate();
 
             stmt.close();
-            conexao.close();
-            JOptionPane.showMessageDialog(null, "Pedido realizado com sucesso!");
-
+            conexao.close();        
         } catch (SQLException erro) {
             erro.printStackTrace();
         }

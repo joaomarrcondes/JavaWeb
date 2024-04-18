@@ -28,7 +28,7 @@ public class UsuarioDAO {
             PreparedStatement stmt = null;
             ResultSet rs = null;
 
-            stmt = conexao.prepareStatement("");
+            stmt = conexao.prepareStatement("select * from usuarios");
             rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -69,7 +69,6 @@ public class UsuarioDAO {
 
             stmt.close();
             conexao.close();
-            JOptionPane.showMessageDialog(null, "Usuário inserido com sucesso!");
 
         } catch (SQLException erro) {
             erro.printStackTrace();

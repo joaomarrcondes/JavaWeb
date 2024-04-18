@@ -18,9 +18,8 @@ function validacao() {
     }
     document.forms["formlogin"].submit();
 }
-
-let usuarios;
-fetch('./usuarios')
+let users;
+fetch('./users')
         .then(response => {
             if (!response.ok) {
                 throw new Error('erro ao obter dados do usuario');
@@ -29,6 +28,7 @@ fetch('./usuarios')
         })
         .then(data => {
             users = data;
+            console.log(users);
         })
         .catch(error => {
             console.error(error);
