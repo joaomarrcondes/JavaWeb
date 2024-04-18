@@ -66,7 +66,6 @@ public class ProdutoPedidoDAO {
 
             stmt.close();
             conexao.close();
-            JOptionPane.showMessageDialog(null, "Produto pedido inserido com sucesso!");
 
         } catch (SQLException erro) {
             erro.printStackTrace();

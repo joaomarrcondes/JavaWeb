@@ -60,7 +60,6 @@ public class EstoqueDAO {
 
             stmt.close();
             conexao.close();
-            JOptionPane.showMessageDialog(null, "Produto editado com sucesso!");
 
         } catch (SQLException erro) {
             erro.printStackTrace();
