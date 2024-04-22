@@ -17,7 +17,7 @@ import model.dao.UsuarioDAO;
  *
  * @author Senai
  */
-@WebServlet(name = "LoginController", urlPatterns = {"/usuario-login", "/usuario-cadastro", "/cadastro", "/users"})
+@WebServlet(name = "LoginController", urlPatterns = {"/usuario-login", "/usuario-cadastro", "/cadastro", "/users", "/login"})
 public class UsuarioController extends HttpServlet {
 
     UsuarioDTO objUsuarioDTO = new UsuarioDTO();
@@ -39,8 +39,13 @@ public class UsuarioController extends HttpServlet {
             dispatcher.forward(request, response);
         } else if (url.equals("/cadastro")) {
             doPost(request, response);
+        } else if (url.equals("/login")) {
+            String nextPage = "/WEB-INF/jsp/home.jsp";
+
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+            dispatcher.forward(request, response);
         }
-         
+
     }
 
     @Override
@@ -62,7 +67,7 @@ public class UsuarioController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {     
+            throws ServletException, IOException {
         objUsuarioDTO.setNome(request.getParameter("Nome"));
         objUsuarioDTO.setSenha(request.getParameter("Senha"));
         objUsuarioDTO.setUsuario(request.getParameter("Usuario"));
