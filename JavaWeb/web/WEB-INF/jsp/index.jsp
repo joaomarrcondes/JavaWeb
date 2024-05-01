@@ -19,8 +19,14 @@
                     <img src="./assets/logo.png" alt="logo-mercado">
                     <input type="text" id="pesquisar" placeholder="Digite o que deseja encontrar...">
                     <i id="lupa" class="fa-solid fa-magnifying-glass"></i>
-                    <i id="user" class="fa-solid fa-user"> Minha Conta</i>
-                    <i id="carrinho" class="fa-solid fa-cart-shopping"> Carrinho</i>
+                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Minha Conta
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="./usuario-login">Login</a></li>
+                        <li><a href="./usuario-cadastro">Cadastro</a></li>
+                    </ul>
                 </div>
             </div>
             <div class="categoria">
@@ -46,8 +52,6 @@
                     </div>
                 </div>
             </div>
-            <a href="./usuario-login">Login</a> <br>
-            <a href="./usuario-cadastro">Cadastro</a> <br>
             <a href="./ProdutosController">Produtos</a> <br>
             <a href="./CategoriasController">Categorias</a>
         </main>
