@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import model.bean.ProdutoDTO;
 import model.dao.ProdutoDAO;
 
-@WebServlet(name = "ProdutosController", urlPatterns = {"/ProdutosController", "/CategoriasController", "/lista-produtos"})
+@WebServlet(name = "ProdutosController", urlPatterns = {"/ProdutosController", "/CategoriasController", "/lista-produtos", "/product-item"})
 public class ProdutosController extends HttpServlet {
 
     ProdutoDTO objProdutoDTO = new ProdutoDTO();
@@ -47,6 +47,15 @@ public class ProdutosController extends HttpServlet {
 
             Gson gson = new Gson();
             String json = gson.toJson(produtos);
+            response.setContentType("application/json");
+            response.setCharacterEncoding("UTF-8");
+            response.getWriter().write(json);
+        }
+        else if (url.equals("/product-item")) {
+            int Id_produto = Integer.parseInt(request.getParameter("id"));
+            List<ProdutoDTO> produto = objProdutoDAO.lerProdutos(Id_produto);
+            Gson gson = new Gson();
+            String json = gson.toJson(produto);
             response.setContentType("application/json");
             response.setCharacterEncoding("UTF-8");
             response.getWriter().write(json);

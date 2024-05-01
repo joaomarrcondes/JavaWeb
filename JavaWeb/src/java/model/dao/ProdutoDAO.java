@@ -23,12 +23,13 @@ public class ProdutoDAO {
 
     public List<ProdutoDTO> ler() {
         List<ProdutoDTO> produtos = new ArrayList<>();
+        String sql = "SELECT * FROM produtos";
         try {
             Connection conexao = Conexao.conectar();
             PreparedStatement stmt = null;
             ResultSet rs = null;
 
-            stmt = conexao.prepareStatement("");
+            stmt = conexao.prepareStatement(sql);
             rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -48,6 +49,34 @@ public class ProdutoDAO {
             erro.printStackTrace();
         }
         return produtos;
+    }
+    
+     public List<ProdutoDTO> lerProdutos(int id) {
+        List<ProdutoDTO> produto = new ArrayList<>();
+        String sql = "SELECT * FROM produtos WHERE id_produto = ?";
+        try {
+            Connection connection = Conexao.conectar();
+            PreparedStatement stmt = null;
+            ResultSet rs = null;
+            stmt = connection.prepareStatement(sql);
+            stmt.setInt(1, id);
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                ProdutoDTO objProduto = new ProdutoDTO();
+                objProduto.setId_produto(rs.getInt("id_produto"));
+                objProduto.setNome(rs.getString("nome"));
+                objProduto.setValor(rs.getFloat("valor"));
+                objProduto.setCategoria_id(rs.getInt("categoria_id"));
+                objProduto.setImgBlob(rs.getBytes("imgBlob"));
+                produto.add(objProduto);
+            }
+            rs.close();
+            stmt.close();
+            connection.close();
+        } catch (SQLException e) {
+            System.out.println("Leitura do Produto: " + e);
+        }
+        return produto;
     }
     
     public void inserir(ProdutoDTO produto) {
